@@ -1,0 +1,15 @@
+apiVersion: gloo.solo.io/v1
+kind: Upstream
+metadata:
+  name: grpcstore-demo-80
+  namespace: gloo-system
+spec:
+  kube:
+    selector:
+      app: grpcstore-demo
+    serviceName: grpcstore-demo
+    serviceNamespace: default
+    servicePort: 80
+    serviceSpec:
+      grpc: {}
+  useHttp2: true
